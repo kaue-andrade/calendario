@@ -1,19 +1,31 @@
-<?php
+<?php 
 
 function linha($semana)
 {
 	echo "<tr>";
 	for ($i = 0; $i <= 6; $i++) {
 		if (isset($semana[$i])) {
-			echo "<td>{$semana[$i]}</td>";
+			$class = "";
+			if($i == 0){
+				$class = 'domingo';
+			} else if ($i == 6){
+				$class = 'sabado';
+			}
+			if ($semana[$i] == date('j')) {
+				echo "<td class='{$class} hoje'><strong>{$semana[$i]}</strong></td>";
+			} else {
+				echo "<td class='{$class}'>{$semana[$i]}</td>";
+			}
 		} else {
 			echo "<td></td>";
 		}
 	}
+
 	echo "</tr>";
 }
 
 function saudacao(){
+
     date_default_timezone_set('America/Sao_Paulo');
 
     $hora = date('H');
@@ -23,6 +35,7 @@ function saudacao(){
         return 'Boa tarde!';
     else
         return 'Boa noite!';
+        
 }   
 
 echo saudacao();
@@ -43,6 +56,27 @@ function calendario()
 }
 ?>
 
+<style>
+
+	td {
+		padding: 2px;
+		text-align: center;
+	}
+
+	.domingo {
+		color: red;
+	}
+
+	.sabado {
+		font-weight: bold;
+	}
+
+	.hoje {
+		background-color: yellow;
+	}
+
+</style>
+
 <table border="1">
 	<tr>
 		<th>Dom</th>
@@ -53,5 +87,5 @@ function calendario()
 		<th>Sex</th>
 		<th>Sáb</th>
 	</tr>
-	<?php calendario(); ?>
+	<?php calendario();?>
 </table>
