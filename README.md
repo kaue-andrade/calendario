@@ -12,6 +12,6 @@ date(). ✅
 
 • Exiba os domingos em vermelho e os sábados em negrito. ✅
 
-• Faça o calendário começar em um dia que não seja um domingo.
+• Faça o calendário começar em um dia que não seja um domingo. ✅
 
-• E um calendário do ano todo? Será que é muito complexo?
+• E um calendário do ano todo? Será que é muito complexo?✅
