@@ -1,4 +1,4 @@
-# calendario
+# Calendário em PHP
 
 • Faça uma página que exiba a hora e a frase “Bom dia”, “Boa tarde” ou “Boa
 noite”, de acordo com a hora. Use a condicional if e a função date(). ✅
