@@ -11,3 +11,7 @@ date(). ✅
 • Faça o calendário começar em um dia que não seja um domingo.
 
 • E um calendário do ano todo? Será que é muito complexo?
+
+<p align="center">
+  <img src="https://gifs.eco.br/wp-content/uploads/2022/08/gifs-de-calendarios-0.gif" alt=Calendario">
+</p>
