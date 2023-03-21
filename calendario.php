@@ -8,7 +8,7 @@ function linha($semana, $mes_atual_da_maquina)
 	for ($i = 0; $i <= 6; $i++) {
 		if (isset($semana[$i])) {
 			$class = "";
-			if($i == 5){
+			if($i == 0){
 				$class = 'domingo';
 			} else if ($i == 6){
 				$class = 'sabado';
@@ -45,17 +45,17 @@ function calendario($nome_mes, $mes_atual_da_maquina, $qtd_dias, $dia_inicio)
 {
     echo "<tr><th colspan='7'>$nome_mes</th></tr>";
     echo "<tr>
+	<th>Dom</th>
 	<th>Seg</th>
 	<th>Ter</th>
 	<th>Qua</th>
 	<th>Qui</th>
 	<th>Sex</th>
 	<th>Sáb</th>
-	<th>Dom</th>
 	</tr>";
 
-	if ($dia_inicio == 6){ 
-        $dia_inicio = 0; 
+	if ($dia_inicio == 0){ 
+        $dia_inicio++; 
     } 
 
     $dia = 1;
@@ -101,12 +101,12 @@ function calendario($nome_mes, $mes_atual_da_maquina, $qtd_dias, $dia_inicio)
 	calendario("Fevereiro", 2, 28, 3);
 	calendario("Março", 3, 31, 3);
 	calendario("Abril", 4, 30, 6);
-	calendario("Maio", 5, 31, 2);
-	calendario("Junho", 6, 30, 5);
+	calendario("Maio", 5, 31, 1);
+	calendario("Junho", 6, 30, 4);
 	calendario("Julho", 7, 31, 6);
-	calendario("Agosto", 8, 31, 3);
-	calendario("Setembro", 9, 30, 6);
-	calendario("Outubro", 10, 31, 2);
-	calendario("Novembro", 11, 30, 5);
-	calendario("Dezembro", 12, 31, 0);?>
+	calendario("Agosto", 8, 31, 2);
+	calendario("Setembro", 9, 30, 5);
+	calendario("Outubro", 10, 31, 0);
+	calendario("Novembro", 11, 30, 4);
+	calendario("Dezembro", 12, 31, 6);?>
 </table>
