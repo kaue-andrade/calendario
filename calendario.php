@@ -30,6 +30,8 @@ function saudacao(){
 
     date_default_timezone_set('America/Sao_Paulo');
 
+	echo '<strong>Hora atual em Brasília: </strong>' . date('H:i:s') . '<br>';
+
     $hora = date('H');
     if($hora >= 6 && $hora <12)
         return 'Bom dia!';
@@ -38,6 +40,7 @@ function saudacao(){
     else
         return 'Boa noite!';
 }  
+
 
 echo saudacao();
 
