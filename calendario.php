@@ -6,13 +6,13 @@ function linha($semana)
 	for ($i = 0; $i <= 6; $i++) {
 		if (isset($semana[$i])) {
 			$class = "";
-			if($i == 0){
+			if($i == 5){
 				$class = 'domingo';
 			} else if ($i == 6){
 				$class = 'sabado';
 			}
 			if ($semana[$i] == date('j')) {
-				echo "<td class='{$class} hoje'><strong>{$semana[$i]}</strong></td>";
+				echo "<td class='{$class}'><strong>{$semana[$i]}</strong></td>";
 			} else {
 				echo "<td class='{$class}'>{$semana[$i]}</td>";
 			}
@@ -35,24 +35,38 @@ function saudacao(){
         return 'Boa tarde!';
     else
         return 'Boa noite!';
-        
-}   
+}  
 
 echo saudacao();
 
-function calendario()
+function calendario($nome_mes, $qtd_dias, $dia_inicio)
 {
-	$dia = 1;
-	$semana = array();
-	while ($dia <= 31) {
-		array_push($semana, $dia);
-		if (count($semana) == 7) {
-			linha($semana);
-			$semana = array();
-		}
-		$dia++;
-	}
-	linha($semana);
+    echo "<tr><th colspan='7'>$nome_mes</th></tr>";
+    echo "<tr>
+	<th>Seg</th>
+	<th>Ter</th>
+	<th>Qua</th>
+	<th>Qui</th>
+	<th>Sex</th>
+	<th>Sáb</th>
+	<th>Dom</th>
+	</tr>";
+
+    $dia = 1;
+    $semana = array_fill(0, $dia_inicio, ''); // preenche o início do array com valores vazios para a semana começar no dia certo
+    while ($dia <= $qtd_dias) {
+        array_push($semana, $dia);
+        if (count($semana) == 7) {
+            linha($semana);
+            $semana = array();
+        }
+        $dia++;
+    }
+    // completa o final da última semana com valores vazios
+    while (count($semana) < 7) {
+        array_push($semana, '');
+    }
+    linha($semana);
 }
 ?>
 
@@ -71,21 +85,23 @@ function calendario()
 		font-weight: bold;
 	}
 
-	.hoje {
-		background-color: yellow;
-	}
-
 </style>
 
 <table border="1">
-	<tr>
-		<th>Dom</th>
-		<th>Seg</th>
-		<th>Ter</th>
-		<th>Qua</th>
-		<th>Qui</th>
-		<th>Sex</th>
-		<th>Sáb</th>
-	</tr>
-	<?php calendario();?>
+
+	<?php 
+	
+	calendario("Janeiro", 31, 0);
+	calendario("Fevereiro", 28, 3);
+	calendario("Março", 31, 3);
+	calendario("Abril", 30, 6);
+	calendario("Maio", 31, 1);
+	calendario("Junho", 30, 4);
+	calendario("Julho", 31, 6);
+	calendario("Agosto", 31, 2);
+	calendario("Setembro", 30, 5);
+	calendario("Outubro", 31, 0);
+	calendario("Novembro", 30, 3);
+	calendario("Dezembro", 31, 5);
+	?>
 </table>
