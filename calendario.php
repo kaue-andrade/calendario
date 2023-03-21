@@ -30,7 +30,7 @@ function saudacao(){
 
     date_default_timezone_set('America/Sao_Paulo');
 
-	echo '<strong>Hora atual em Brasília: </strong>' . date('H:i:s') . '<br>';
+    echo '<strong>Hora atual em Brasília: </strong>' . date('H:i:s') . '<br>';
 
     $hora = date('H');
     if($hora >= 6 && $hora <12)
