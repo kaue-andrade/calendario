@@ -33,12 +33,12 @@ function saudacao(){ // Início da função saudacao()
 	echo '<strong>Hora atual em Brasília: </strong>' . date('H:i:s') . '<br>'; // Exibe a hora atual de Brasília
 
     $hora = date('H'); // Define a variável $hora com o valor da hora atual
-    if($hora >= 6 && $hora <12) // Condição para dar "Bom dia!"
+    if($hora >= 6 && $hora <12) // Condição para dar "Bom dia!" (entre 6:00 e 11:59)
         return 'Bom dia!'; // Retorna "Bom dia!"
-    else if($hora > 12 && $hora < 18) // Condição para dar "Boa noite!"
+    else if($hora > 12 && $hora < 18) // Condição para dar "Boa noite!" (entre 12:00 e 17:59)
         return 'Boa tarde!'; // Retorna "Boa tarde!"
     else // Senão
-        return 'Boa noite!'; // Se não ocorrer nenhum dos casos anteriores, mostra "Boa noite!"
+        return 'Boa noite!'; // Se não ocorrer nenhum dos casos anteriores, mostra "Boa noite!" (entre 18:00 e 23:59)
 }  
 
 echo saudacao(); // Imprime o conteúdo de saudacao() na tela
@@ -74,7 +74,7 @@ function calendario($nome_mes, $mes_correspondente, $qtd_dias, $dia_inicio)
     while (count($semana) < 7) { // Se o número de elementos for menor que 7, ele entra no while
         array_push($semana, ''); // Exibe elementos vazios
     }
-    linha($semana, $mes_correspondente); // // Função chamada para imprimir a linha correspondente
+    linha($semana, $mes_correspondente); // Função chamada para imprimir a linha correspondente
 }
 ?>
 
@@ -107,9 +107,9 @@ function calendario($nome_mes, $mes_correspondente, $qtd_dias, $dia_inicio)
 	calendario("Junho", 6, 30, 6); // Define os parâmetros do mês de Junho
 	calendario("Julho", 7, 31, 1); // Define os parâmetros do mês de Julho
 	calendario("Agosto", 8, 31, 4); // Define os parâmetros do mês de Agosto
-	calendario("Setembro", 9, 30, 5); // Define os parâmetros do mês de Setembro
-	calendario("Outubro", 10, 31, 0); // Define os parâmetros do mês de Outubro
-	calendario("Novembro", 11, 30, 4); // Define os parâmetros do mês de Novembro
-	calendario("Dezembro", 12, 31, 6);// Define os parâmetros do mês de Dezembro
+	calendario("Setembro", 9, 30, 0); // Define os parâmetros do mês de Setembro
+	calendario("Outubro", 10, 31, 3); // Define os parâmetros do mês de Outubro
+	calendario("Novembro", 11, 30, 6); // Define os parâmetros do mês de Novembro
+	calendario("Dezembro", 12, 31, 1);// Define os parâmetros do mês de Dezembro
 	?>
 </table>
